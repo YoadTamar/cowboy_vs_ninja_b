@@ -11,7 +11,7 @@ namespace ariel
         public:
             Team2(Character*);
             void attack(Team*) override;
-            void print() const override;
+            void print() override;
             Character* victim(Team *) override;
     };
 }

@@ -30,7 +30,7 @@ namespace ariel
             int stillAlive();
 
             virtual void attack(Team*);
-            virtual void print() const;
+            virtual void print();
     
             virtual Character* victim(Team *);
 

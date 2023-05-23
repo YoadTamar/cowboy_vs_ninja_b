@@ -12,14 +12,14 @@ namespace ariel
 
     void Ninja::move(Character *other)
     {
-        // if (other == nullptr)
-        //     throw invalid_argument("Other character is null!");
+        if (other == nullptr)
+            throw invalid_argument("Other character is null!");
 
-        // else if (other == this)
-        //     throw invalid_argument("Cannot move to yourself!");
+        else if (other == this)
+            throw invalid_argument("move to yourself!");
 
-        // else if (!isAlive())
-        //     throw runtime_error("Cannot move while dead!");
+        else if (!isAlive())
+            throw runtime_error("move while dead!");
 
         Point newLocation = Point::moveTowards(getLocation(), other->getLocation(), speed);
 
@@ -39,6 +39,16 @@ namespace ariel
         {
             other->hit(40);
         }
+    }
+
+    string Ninja::print()
+    {
+        string res = "";
+        res += "N name: " + this->getName();
+        if(this->isAlive() == true)
+            res += " " + to_string(this->getHitPoints());
+        res += " (" + to_string(this->getLocation().getX()) + "," + to_string(this->getLocation().getY()) + ")";
+        return res;
     }
 
 }

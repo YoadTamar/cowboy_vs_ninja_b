@@ -9,7 +9,7 @@ namespace ariel
     Team::Team(Character *leader)
     {
         if(leader->getTeam())
-            invalid_argument("already in team!");
+            runtime_error("already in team!");
 
         this->leader = leader;
         this->team.push_back(leader);
@@ -165,7 +165,7 @@ namespace ariel
         this->leader = leader;
     }
 
-    void Team::print() const
+    void Team::print()
     {
         cout << "TEAM:" << endl;
 

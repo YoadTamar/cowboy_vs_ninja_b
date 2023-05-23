@@ -92,6 +92,20 @@ namespace ariel
         return nullptr;
     }
 
-    void Team2::print()const
-    {}
+    void Team2::print()
+    {
+        cout << "TEAM2:" << endl;
+
+        string name = getLeader()->getName();
+
+        cout << "the leader: " << name << endl;
+
+        for(size_t i = 0; i < this->getTeam().size(); i++)
+        {
+            if(this->getTeam().at(i)->getType() == 1)
+            {
+                std::cout << this->getTeam().at(i)->print() << std::endl;
+            }
+        }
+    }
 }

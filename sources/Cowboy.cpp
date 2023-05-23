@@ -36,7 +36,7 @@ namespace ariel
     string Cowboy::print()
     {
         string res = "";
-        res += "C (" + this->getName() + ")";
+        res += "C name: " + this->getName();
         if(this->isAlive() == true)
             res += " " + to_string(this->getHitPoints());
         res += " (" + to_string(this->getLocation().getX()) + "," + to_string(this->getLocation().getY()) + ")";

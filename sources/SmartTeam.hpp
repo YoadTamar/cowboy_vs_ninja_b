@@ -10,7 +10,9 @@ namespace ariel
     {
         public:
             SmartTeam(Character*);
-            void attack(Team*);
-            void print();
+            void attack(Team*) override;
+            void print() override;
+            Character* ninja_victim(Ninja* , Team*);
+            Character* cowboy_victim(Team*);
     };
 }
