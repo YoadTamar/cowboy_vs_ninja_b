@@ -13,7 +13,6 @@ namespace ariel
 
         this->leader = leader;
         this->team.push_back(leader);
-
         leader->setTeam(true);
     }
 

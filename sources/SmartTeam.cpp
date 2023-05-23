@@ -8,6 +8,7 @@ namespace ariel
 {
     SmartTeam::SmartTeam(Character *leader) : Team(leader) {}
 
+
     Character* SmartTeam::ninja_victim(Ninja* ninja, Team* other)
     {
         double min_ninja = __DBL_MAX__;

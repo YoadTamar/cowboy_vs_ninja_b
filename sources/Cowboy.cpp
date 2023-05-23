@@ -44,9 +44,4 @@ namespace ariel
         res += " (" + to_string(this->getLocation().getX()) + "," + to_string(this->getLocation().getY()) + ")";
         return res;
     }
-
-
-
-
-
 }
