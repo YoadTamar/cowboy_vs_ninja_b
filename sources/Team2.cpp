@@ -25,15 +25,15 @@ namespace ariel
         if (this->getLeader()->isAlive() == false)
             this->setLeader(victim(this));
 
-        Character *other_victiom = this->victim(other);
+        Character *other_victim = this->victim(other);
 
         for(size_t i = 0; i < this->getTeam().size(); i++)
         {
             if(other->stillAlive() == 0)
                 return;
 
-            if(other_victiom->isAlive() == false)
-                other_victiom = victim(other);
+            if(other_victim->isAlive() == false)
+                other_victim = victim(other);
 
             if(this->getTeam().at(i)->getType() == 1)
             {
@@ -43,7 +43,7 @@ namespace ariel
                 if(c->hasboolets() == false)
                     c->reload();
                 else
-                    c->shoot(other_victiom);
+                    c->shoot(other_victim);
             }
         }
 
@@ -52,8 +52,8 @@ namespace ariel
             if(other->stillAlive() == 0)
                 return;
 
-            if(other_victiom->isAlive() == false)
-                other_victiom = victim(other);
+            if(other_victim->isAlive() == false)
+                other_victim = victim(other);
 
             if(this->getTeam().at(i)->getType() == 2)
             {
@@ -61,10 +61,10 @@ namespace ariel
 
                 if(c->isAlive() == false)
                     continue;
-                if(c->distance(other_victiom) <= 1)
-                    c->slash(other_victiom);
+                if(c->distance(other_victim) <= 1)
+                    c->slash(other_victim);
                 else
-                    c->move(other_victiom);
+                    c->move(other_victim);
             }
         }
 
@@ -72,20 +72,20 @@ namespace ariel
 
     Character* Team2::victim(Team *other)
     {
-        double min_dist_from_lead = __DBL_MAX__;
+        double minToLeader = __DBL_MAX__;
         for (size_t i = 0; i < other->getTeam().size(); i++)
         {
             if (other->getTeam().at(i)->isAlive() == true)
             {
-                if (other->getTeam().at(i)->distance(this->getLeader()) < min_dist_from_lead)
-                    min_dist_from_lead = other->getTeam().at(i)->distance(this->getLeader());
+                if (other->getTeam().at(i)->distance(this->getLeader()) < minToLeader)
+                    minToLeader = other->getTeam().at(i)->distance(this->getLeader());
             }
         }
         for (size_t i = 0; i < other->getTeam().size(); i++)
         {
             if (other->getTeam().at(i)->isAlive() == true)
             {
-                if (other->getTeam().at(i)->distance(this->getLeader()) == min_dist_from_lead)
+                if (other->getTeam().at(i)->distance(this->getLeader()) == minToLeader)
                     return other->getTeam().at(i);
             }
         }

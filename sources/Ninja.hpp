@@ -20,7 +20,7 @@ namespace ariel
 
             int getSpeed();
             void setSpeed(int);
-            string print();
+            string print() override;
 
     };
 }

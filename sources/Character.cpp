@@ -20,12 +20,12 @@ namespace ariel
             return this->getLocation().distance(other->getLocation());;
         }
 
-        void Character::hit(int hitpoints)
+        void Character::hit(int points)
         {
-            if(hitPoints < 0)
-                invalid_argument("negative hit");
+            if(points < 0)
+                throw invalid_argument("negative hit");
                 
-            this->hitPoints = this->hitPoints - hitpoints;
+            this->hitPoints = this->hitPoints - points;
         }
 
         string Character::getName()

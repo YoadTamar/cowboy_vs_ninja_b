@@ -8,8 +8,8 @@ namespace ariel
 {
     Team::Team(Character *leader)
     {
-        if(leader->getTeam())
-            runtime_error("already in team!");
+        if(leader->getTeam() == true)
+            throw runtime_error("already in team!");
 
         this->leader = leader;
         this->team.push_back(leader);
@@ -19,7 +19,7 @@ namespace ariel
 
     void Team::add(Character *member)
     {
-        if (member->getTeam())
+        if (member->getTeam() == true)
             throw runtime_error("already in a team!");
 
         else if (this->team.size() == 10)

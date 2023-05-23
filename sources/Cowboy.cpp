@@ -30,6 +30,8 @@ namespace ariel
     
     void Cowboy::reload()
     {
+        if(!this->isAlive())
+            throw runtime_error("dead");
         this->bullets = 6;
     }
 

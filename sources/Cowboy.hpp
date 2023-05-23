@@ -17,7 +17,7 @@ namespace ariel
             bool hasboolets();
             void reload();
 
-            string print();
+            string print() override;
 
     };
 }
